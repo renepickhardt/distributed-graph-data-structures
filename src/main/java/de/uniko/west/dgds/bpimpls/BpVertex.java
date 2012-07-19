@@ -1,6 +1,9 @@
 package de.uniko.west.dgds.bpimpls;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import com.tinkerpop.blueprints.Direction;
 import com.tinkerpop.blueprints.Edge;
@@ -9,9 +12,20 @@ import com.tinkerpop.blueprints.Vertex;
 
 public class BpVertex implements Vertex {
 
+	UUID id;
+	Set<Edge> outEdges;
+	
+	public BpVertex(UUID id){
+		this.id = id;
+	}
+	
+	public BpVertex(UUID id, Set<Edge> outEdges){
+		this(id);
+		this.outEdges = outEdges; 	
+	}
+	
 	public Object getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 	public Object getProperty(String arg0) {
